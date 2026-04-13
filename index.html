@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="kaa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shanaraq - Ultra Pro Slides</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body{
+  overflow:hidden;
+  background:#f6f7fb;
+  cursor:none;
+}
+
+/* BACKGROUND */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 20%, #dbeafe 0%, transparent 40%),
+    radial-gradient(circle at 80% 30%, #fce7f3 0%, transparent 40%),
+    radial-gradient(circle at 50% 80%, #e9d5ff 0%, transparent 45%);
+  z-index:-2;
+}
+
+/* SLIDE */
+.slide{
+  position:absolute;
+  width:100%;
+  height:100vh;
+  display:grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items:center;
+  gap:40px;
+  padding:70px;
+  opacity:0;
+  transform:scale(0.96);
+  transition:0.6s ease;
+}
+
+.slide.active{
+  opacity:1;
+  transform:scale(1);
+}
+
+/* CARD */
+.card{
+  background:rgba(255,255,255,0.85);
+  backdrop-filter: blur(15px);
+  border-radius:20px;
+  padding:30px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.08);
+}
+
+h1{font-size:24px;color:#090a0e;}
+h2{font-size:34px;color:#f97316;margin-bottom:10px;}
+
+p,li{
+  font-size:18px;
+  color:#333;
+  line-height:1.7;
+}
+
+ul{margin-left:20px;}
+
+/* IMAGE */
+.imageBox{
+  height:70vh;
+  border-radius:25px;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,0.15);
+}
+
+.imageBox img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* CONTROLS */
+.controls{
+  position:fixed;
+  bottom:20px;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+}
+
+button{
+  padding:10px 18px;
+  border:none;
+  border-radius:20px;
+  background:white;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  cursor:pointer;
+}
+
+button:hover{
+  background:#2563eb;
+  color:white;
+}
+
+/* COUNTER */
+#counter{
+  position:fixed;
+  top:15px;
+  right:20px;
+  color:#444;
+}
+
+/* POINTER */
+#pointer{
+  position:fixed;
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:#2563eb;
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  box-shadow:0 0 12px #2563eb;
+  z-index:9999;
+}
+
+/* LASER */
+.laser{
+  position:fixed;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:red;
+  animation:laser 0.5s ease-out forwards;
+  pointer-events:none;
+  z-index:9998;
+}
+
+@keyframes laser{
+  0%{transform:scale(1);opacity:1;}
+  100%{transform:scale(25);opacity:0;}
+}
+
+/* GAME BUTTONS */
+.gameBox{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:10px;
+}
+
+.gameBtn{
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  font-size:15px;
+  background:#111827;
+  color:white;
+  transition:0.3s;
+}
+
+.gameBtn:hover{
+  background:#2563eb;
+}
+</style>
+</head>
+
+<body>
+
+<div id="pointer"></div>
+<div id="counter">1 / 9</div>
+
+<!-- SLIDES -->
+<div class="slide active">
+  <div class="card">
+    <h1>Shanaraq juwakerşiligi – bul adamnıń bolajaq ömirge, jáne óz otbasın qurıwğa ruhıy, psixologiyalıq jáne ádep-ikramlıq jaqtan tayarlanıw procesi.</h1>
+    <p>Oila húrmeti hám qádirı – bul har bir insan óz otbasın sıylawı, ata-anaǵa, aqa-ini hám qarındaslarına iymanlı qarawı hám olardıń ornın joqarı tutıwı degendi bildiredi</p>
+  </div>
+  <div class="imageBox">
+    <img src="./img/ph7.jpg">
+  </div>
+</div>
+
+<div class="slide">
+  <div class="card">
+    <h2>Kiris</h2>
+    <p>Shanaraq — adam ómiriniń negizi. Sebebi har bir insan óz tálim-tárbiyesin, ádep-ikramın hám ómirlik qadiriyatların eń aldımen shanaraqta úyrenedi.</p>
+  </div>
+  <div class="imageBox">
+    <img src="./img/ph1.jpg">
+  </div>
+</div>
+
+<div class="slide">
+  <div class="card">
+    <h2>Oilanin ahmiyeti</h2>
+    <ul>
+      <li>Oila – tárbiyanıń eń birinshi mektebi.</li>
+      <li>Ata-ana balaǵa jaqsılıq, sıylasıq, sabırlılıq hám juwakerlikti úyretedi.</li>
+      <li>Eger oylada máhabbat hám túsiniw bolsa, bala da ádep-ikramlı, jıljıq hám juwaker adam bolıp óseti.</li>
+    </ul>
+  </div>
+  <div class="imageBox">
+    <img src="./img/ph2.jpg">
+  </div>
+</div>
+
+<div class="slide">
+  <div class="card">
+    <h2>Hurmet</h2>
+    <p>Húrmet – bul adamnıń basqa kisige, onıń pikirine, jasına, orınına hám qádir-qımbatına sıylı qarawı. Húrmet bar jerde tınıshlıq, tatulıq hám jaqsı qarım-qatnas qáliplesedi.</p>
+  </div>
+  <div class="imageBox">
+    <img src="./img/ph3.jpg">
+  </div>
+</div>
+
+<div class="slide">
+  <div class="card">
+    <h2>Juwapkershilik</h2>
+    <ul>
+      <li>Oila ishinde juwapkershilik – ata-anaǵa sıylı bolıw, úy ishindegi mindetlerdi orınlaw hám basqalarǵa járdem beriw menen kórinedi.</li>
+      <li>Juwapkershilik bar jerde tınıshlıq, tártıp hám isenim payda boladı.</li>
+      <li>Sonıń ushın juwapkershilik – adamnıń eń áhmiyetli qásiyetlerinden biri bolıp tabıladı.</li>
+    </ul>
+  </div>
+  <div class="imageBox">
+    <img src="./img/ph4.jpg">
+  </div>
+</div>
+
+<div class="slide">
+  <div class="card">
+    <h2>Mehr</h2>
+    <p>Mehr – bul adamnıń júrkinen şıǵatın sıylasıq, jaqsılıq hám mýxabbat sezimi. Ol insanlardı bir-birine jaqınlastıradı hám qarım-qatnastı bekitemdi.</p>
+  </div>
+  <div class="imageBox">
+    <img src="./img/ph5.jpg">
+  </div>
+</div>
+
+<div class="slide">
+  <div class="card">
+    <h2>Muammalar</h2>
+    <ul>
+      <li>Oila ishinde muammolar payda bolsa, eń áhmietlisi – bir-birin tıńlaw.</li>
+      <li>Sonıń ushın muammolar – adam ómiriniń bir bóligi.</li>
+      <li>Muammolar durıs sheshilse, oila taǵı da bekem boladı.</li>
+    </ul>
+  </div>
+  <div class="imageBox">
+    <img src="./img/ph6.jpg">
+  </div>
+</div>
+
+<!-- ⭐ FINAL SLIDE WITH 2 GAMES -->
+<div class="slide">
+  <div class="card">
+    <h2>Xulosa + O‘yinlar</h2>
+    <p>Shanaraq — jamiyet negizi.</p>
+    <p>Endi qiziqarli o‘yin o‘yna 👇</p>
+
+    <div class="gameBox">
+
+      <button class="gameBtn" onclick="game1()">
+        🎮 Qiziqarli Oila Quiz 1
+      </button>
+
+      <button class="gameBtn" onclick="game2()">
+        🎯 Qiziqarli Oila Quiz 2
+      </button>
+
+    </div>
+  </div>
+
+  <div class="imageBox">
+    <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7">
+  </div>
+</div>
+
+<!-- CONTROLS -->
+<div class="controls">
+  <button onclick="prev()">⬅</button>
+  <button onclick="next()">➡</button>
+</div>
+
+<script>
+let slides=document.querySelectorAll(".slide");
+let i=0;
+
+function show(n){
+  slides.forEach(s=>s.classList.remove("active"));
+  slides[n].classList.add("active");
+  document.getElementById("counter").innerText=(n+1)+" / "+slides.length;
+}
+
+function next(){ i=(i+1)%slides.length; show(i); }
+function prev(){ i=(i-1+slides.length)%slides.length; show(i); }
+
+/* keyboard */
+document.addEventListener("keydown",e=>{
+  if(e.key==="ArrowRight")next();
+  if(e.key==="ArrowLeft")prev();
+});
+
+/* pointer */
+let pointer=document.getElementById("pointer");
+document.addEventListener("mousemove",e=>{
+  pointer.style.left=e.clientX+"px";
+  pointer.style.top=e.clientY+"px";
+});
+
+/* laser */
+document.addEventListener("click",e=>{
+  let l=document.createElement("div");
+  l.className="laser";
+  l.style.left=e.clientX+"px";
+  l.style.top=e.clientY+"px";
+  document.body.appendChild(l);
+  setTimeout(()=>l.remove(),500);
+});
+
+/* GAMES */
+function game1(){
+  window.open("https://scratch.mit.edu/search/projects?q=family", "_blank");
+}
+
+function game2(){
+  window.open("https://scratch.mit.edu/search/projects?q=family", "_blank");
+}
+</script>
+
+</body>
+</html>
